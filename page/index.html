@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <title>SYU KR</title>
+    <link rel="icon" href="/favicon/favicon.ico" />
+  </head>
+  <script>
+    async function getStatus(url) {
+      const getResponse = await fetch(url, {method: 'get'})
+      return getResponse
+    }
+    getStatus('https://lecture.syu.kr')
+      .then((res) => (document.getElementById('lecture-status').innerHTML = '정상'))
+      .catch((reason) => (document.getElementById('bus-status').innerHTML = '비정상'))
+    getStatus('https://bus.syu.kr')
+      .then((res) => (document.getElementById('bus-status').innerHTML = '정상'))
+      .catch((reason) => (document.getElementById('bus-status').innerHTML = '비정상'))
+  </script>
+  <style>
+    a {
+      color: #5e5e5e;
+    }
+  </style>
+  <body>
+    <h1>SYU KR</h1>
+    <h5>SYU KR Team. <a href="https://github.com/syu-kr">@syu-kr</a></h5>
+    <hr />
+    <h3>lecture.syu.kr : <span id="lecture-status"></span></h3>
+    <a href="https://lecture.syu.kr">https://lecture.syu.kr</a>
+    <h3>bus.syu.kr : <span id="bus-status"></span></h3>
+    <a href="https://bus.syu.kr">https://bus.syu.kr</a>
+  </body>
+</html>
